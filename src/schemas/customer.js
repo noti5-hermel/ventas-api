@@ -6,6 +6,7 @@ const customerModel=Sequelize.define("customers",{
     code:{
         type:DataTypes.STRING,
         allowNull:false,
+        primarykey:true
     },
     name:{
             type:DataTypes.STRING,
@@ -19,25 +20,58 @@ const customerModel=Sequelize.define("customers",{
                 isEmail:true,
             }
         },
+    address:{
+     type:DataTypes.STRING,
+     allowNull:true,
+    },    
     phone:{
         type:DataTypes.STRING,
         allowNull:true,
     },
-    tax_code:{
-        type:DataTypes.ENUM('active','inactive'),
-            defaultValue:'active',
-            allowNull:false
-    },
     payment_terms:{
-        type:DataTypes.ENUM('active','inactive'),
-            defaultValue:'active',
-            allowNull:false
+         type:DataTypes.INTEGER,
+        allowNull:true,
+        validate:{
+            isIn:[Object.values(payTerms)]
+        }
+    },
+    tax_code:{
+        type:DataTypes.INTEGER,
+        allowNull:true,
+        validate:{
+            isIn:[Object.values(taxcode)]
+        }
+    },
+    status:{
+         type:DataTypes.ENUM('active','inactive'),
+         defaultValue:'active',
+         allowNull:false
+    },
+    rute_id:{
+         type:Datatypes.UUID,
+        references:{
+            model:rute,
+            key:'idRute',
+        },
+        allowNull:true,
     }
+    
 })
 
+//Condition pay
 const payTerms={
-    CONTADO:,
-    CREDITO:,
+    CONTADO:1,
+    QUINCE_DIAS:2,
+    TREINTA_DIAS:3,
+    SESENTA_DIAS:4,
+    CUARENTACINCO_DIAS:5,
+    SEIS_DIAS:6,
+}
+
+//tax code
+const taxcode={
+ CONSUMIDOR_F:0,
+    CREDITO_F:1,
     EXPORTACION:3
 }
 

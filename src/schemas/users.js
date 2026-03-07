@@ -38,7 +38,8 @@ const userModel = Sequelize.define("users",{
         references:{
             model:rute,
             key:'idRute',
-        }
+        },
+        allowNull:true,
     }
 
 });

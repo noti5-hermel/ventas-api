@@ -26,10 +26,6 @@ const productsModel= Sequelize.define("products",
             defaultValue:'active',
             allowNull:false
         },
-        max_descount:{
-            type:DataTypes.INTEGER,
-            allowNull:true,
-        }
     }
 )
 
