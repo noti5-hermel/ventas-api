@@ -5,10 +5,10 @@ const rute = require("./rute");
 const categoryComplaint= require("./categoryComplaint");
 const proposal = require("./proposal");
 const customer = require("./customer");
-
-
-
-
+const transaction = require("./transaction");
+const purchase= require("./purchase");
+const proposalItems= require("./proposalItems");
+const complaintModel=require("./complaint")
 
 
 
@@ -21,5 +21,9 @@ module.exports={
     rute,
     categoryComplaint,
     proposal,
-    customer
+    customer,
+    transaction,
+    purchase,
+    proposalItems,
+    complaintModel
 };
