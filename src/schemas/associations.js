@@ -9,7 +9,7 @@ const transaction = require("./transaction");
 const purchase= require("./purchase");
 const proposalItems= require("./proposalItems");
 const complaintModel=require("./complaint")
-
+const followUp= require("./followUp")
 
 
 
@@ -25,5 +25,6 @@ module.exports={
     transaction,
     purchase,
     proposalItems,
-    complaintModel
+    complaintModel,
+    followUp
 };

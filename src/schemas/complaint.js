@@ -2,6 +2,7 @@ const {DataTypes, DATE}= require("sequelize");
 const {v4:uuidv4}=require("uuid");
 const customer = require("./customer");
 const category= require("./categoryComplaint");
+const user=require("./users");
 
 
 const complaintModel=Sequelize.define("complaint",{
@@ -38,7 +39,13 @@ const complaintModel=Sequelize.define("complaint",{
                         model:category,
                         key:'idcategory'
                 }
-
+    },
+    user_id:{
+        type:DataTypes.UUID,
+        references:{
+            model:user,
+            key:'id'
+        }
     }
 });
 
