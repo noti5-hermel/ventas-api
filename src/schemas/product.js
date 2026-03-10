@@ -1,5 +1,6 @@
 const {DataTypes}= require("sequelize");
 const {v4:uuidv4}= require("uuid");
+const segmento = require("./segmento");
 
 const productsModel= Sequelize.define("products",
     {
@@ -21,11 +22,26 @@ const productsModel= Sequelize.define("products",
             allowNull:false,
             defaultValue:0.0
         },
+        unidad:{
+            type:DataTypes.STRING,
+            allowNull:true,
+        },
+        empaque:{
+            type:DataTypes.STRING,
+            allowNull:true,
+        },
         status:{
             type:DataTypes.ENUM('active','inactive'),
             defaultValue:'active',
             allowNull:false
         },
+        segmento_id:{
+            type:DataTypes.UUID,
+            references:{
+                model:segmento,
+                key:'id'
+            }
+        }
     }
 )
 
