@@ -9,3 +9,5 @@ router.get("/:id",controller.getOne);
 router.post("/",controller.create);
 router.put("/:id",controller.updateSeg);
 router.delete("/:id",controller.deleteSeg);
+
+module.exports=router;
