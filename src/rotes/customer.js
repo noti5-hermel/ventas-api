@@ -1,0 +1,10 @@
+const express=require("express");
+const router=express.Router();
+const controller=require("../controllers/customer");
+
+
+router.get("/",controller.getAll);
+router.get("/:id",controller.getOne);
+router.post("/",controller.create);
+router.put("/:id",controller.updateCustomer);
+router.delete("/:id",controller.deleteCustomer);
