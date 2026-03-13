@@ -7,6 +7,7 @@ const configRoutes=(app)=>{
     app.use(express.json());
 
     app.use("/roleUser",roleUser);
+
 }
 
 
