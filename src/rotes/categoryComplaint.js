@@ -8,3 +8,5 @@ router.get("/:id",controller.getOne);
 router.post("/",controller.create);
 router.put("/:id",controller.updateCategoryComplaint);
 router.delete("/:id",controller.deleteCategoryComplaint);
+
+module.exports=router;
