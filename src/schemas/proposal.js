@@ -1,8 +1,9 @@
-const {DataTypes, Sequelize} = require("sequelize");
+const {DataTypes} = require("sequelize");
+const sequelize=require('../config/db');
 const customer = require("./customer");
 const {v4:uuidv4}=require("uuid");
 
-const proposalModel=Sequelize.define("proposal",{
+const proposalModel=sequelize.define("proposal",{
     id:{
         type:DataTypes.UUID,
         allowNull:false,

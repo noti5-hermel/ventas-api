@@ -1,9 +1,9 @@
-const { Sequelize } = require("sequelize");
 const {DataTypes} = require("seuqelize");
+const sequelize=require('../config/db');
 const {v4:uuidv4}= require("uuid");
 
 
-const segmentoModel=Sequelize.afterDefine("segmento",{
+const segmentoModel=sequelize.afterDefine("segmento",{
     id:{
         type:DataTypes.UUID,
         allowNull:false,

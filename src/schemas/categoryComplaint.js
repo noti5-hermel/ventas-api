@@ -1,8 +1,9 @@
 const {DataTypes}= require("sequelize")
+const sequelize=require('../config/db');
 const {v4:uuidv4}=require("uuid");
 
 
-const categoryComplaintModel=Sequelize.define("categoryComplaint",{
+const categoryComplaintModel=sequelize.define("categoryComplaint",{
     
         idcategory:{
             type:DataTypes.UUID,

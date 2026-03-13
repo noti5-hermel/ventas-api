@@ -1,10 +1,11 @@
 const {DataTypes}= require("sequelize");
+const sequelize=require('../config/db');
 const {v4:uuidv4}= require("uuid");
-const proposal = require("./associations");
+const proposal = require("./proposal");
 const product= require("./product");
 
 
-const proposalItemsModel=Sequelize.define("proposal_items",{
+const proposalItemsModel=sequelize.define("proposal_items",{
     id:{
         type:DataTypes.UUID,
         allowNull:false,

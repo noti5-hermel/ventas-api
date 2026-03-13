@@ -1,8 +1,9 @@
 const {DataTypes}= require("sequelize");
+const sequelize=require('../config/db');
 const {v4:uuidv4}= require("uuid");
 const segmento = require("./segmento");
 
-const productsModel= Sequelize.define("products",
+const productsModel= sequelize.define("products",
     {
         idproduct:{
             type:DataTypes.STRING,

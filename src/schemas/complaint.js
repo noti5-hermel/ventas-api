@@ -1,11 +1,12 @@
-const {DataTypes, DATE}= require("sequelize");
+const {DataTypes}= require("sequelize");
+const sequelize=require('../config/db');
 const {v4:uuidv4}=require("uuid");
 const customer = require("./customer");
 const category= require("./categoryComplaint");
 const user=require("./users");
 
 
-const complaintModel=Sequelize.define("complaint",{
+const complaintModel=sequelize.define("complaint",{
     id:{
                 type:DataTypes.UUID,
                 allowNull:false,

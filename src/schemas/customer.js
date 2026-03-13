@@ -1,8 +1,9 @@
 const {DataTypes}= require("sequelize");
+const sequelize=require('../config/db');
 const rute = require("./rute");
 const { validate } = require("uuid");
 
-const customerModel=Sequelize.define("customers",{
+const customerModel=sequelize.define("customers",{
     code:{
         type:DataTypes.STRING,
         allowNull:false,

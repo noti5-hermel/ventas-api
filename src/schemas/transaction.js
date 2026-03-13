@@ -1,4 +1,5 @@
 const {DataTypes}= require("sequelize");
+const sequelize=require('../config/db');
 const {v4:uuidv4}=require("uuid");
 const customer = require("./customer");
 const user=require("./users");
@@ -6,7 +7,7 @@ const proposal=require("./proposal");
 
 
 
-const transactionModel=Sequelize.afterDefine("transaction",{
+const transactionModel=sequelize.afterDefine("transaction",{
         id:{
                 type:DataTypes.UUID,
                 allowNull:false,

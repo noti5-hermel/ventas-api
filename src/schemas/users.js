@@ -1,11 +1,12 @@
 const {DataTypes}= require("sequelize");
+const sequelize=require('../config/db');
 const {v4:uuidv4}= require("uuid");
 const role =require("./roleUsers");
 const rute= require("./rute");
 
 
 
-const userModel = Sequelize.define("users",{
+const userModel = sequelize.define("users",{
     id:{
           type:DataTypes.UUID,
           allowNull:false,
