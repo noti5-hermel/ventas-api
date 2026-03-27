@@ -8,7 +8,7 @@ const ruteModel= sequelize.define("rute",
             type:DataTypes.UUID,
             allowNull:false,
             defaultValue:uuidv4,
-            primarykey:true
+            primaryKey:true
         },
         rute_name:{
             type:DataTypes.STRING,

@@ -7,6 +7,8 @@ const product = require("../rotes/product");
 const ruta = require("../rotes/ruta");
 const segmento = require("../rotes/segmento");
 const users = require("../rotes/users");
+const transaction = require("../rotes/transaction");
+const purchase = require("../rotes/purchase");
 
 
 const configRoutes=(app)=>{
@@ -19,6 +21,9 @@ const configRoutes=(app)=>{
     app.use("/ruta",ruta);
     app.use("/segmento",segmento);
     app.use("/users",users);
+    app.use("/transaction",transaction);
+    app.use("/purchase",purchase);
+
 
 }
 

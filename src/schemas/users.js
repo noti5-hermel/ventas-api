@@ -1,4 +1,4 @@
-const {DataTypes}= require("sequelize");
+const {DataTypes}= require('sequelize');
 const sequelize=require('../config/db');
 const {v4:uuidv4}= require("uuid");
 const role =require("./roleUsers");
@@ -11,7 +11,7 @@ const userModel = sequelize.define("users",{
           type:DataTypes.UUID,
           allowNull:false,
           defaultValue:uuidv4,
-          primarykey:true
+          primaryKey:true
 
     },
     name:{
@@ -35,7 +35,7 @@ const userModel = sequelize.define("users",{
         },
     },
     rute_id:{
-        type:Datatypes.UUID,
+        type:DataTypes.UUID,
         references:{
             model:rute,
             key:'idRute',
@@ -46,4 +46,4 @@ const userModel = sequelize.define("users",{
 });
 
 
-module.export=userModel;
+module.exports=userModel;

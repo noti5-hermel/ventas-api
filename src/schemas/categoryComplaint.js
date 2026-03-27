@@ -9,7 +9,7 @@ const categoryComplaintModel=sequelize.define("categoryComplaint",{
             type:DataTypes.UUID,
             allowNull:false,
             defaultValue:uuidv4,
-            primarykey:true
+            primaryKey:true
         },
         category_name:{
             type:DataTypes.STRING,

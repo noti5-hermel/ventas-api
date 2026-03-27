@@ -7,11 +7,11 @@ const proposal=require("./proposal");
 
 
 
-const transactionModel=sequelize.afterDefine("transaction",{
+const transactionModel=sequelize.define("transaction",{
         id:{
                 type:DataTypes.UUID,
                 allowNull:false,
-                primarykey:true,
+                primaryKey:true,
                 defaultValue:uuidv4            
         },
         order_id:{
@@ -48,7 +48,7 @@ const transactionModel=sequelize.afterDefine("transaction",{
                 }
         },
         customer_id:{
-                type:DataTypes.UUID,
+                type:DataTypes.STRING,
                 references:{
                         model:customer,
                         key:'code'
@@ -67,4 +67,4 @@ const transactionModel=sequelize.afterDefine("transaction",{
 });
 
 
-module.exports=transactionModel
+module.exports=transactionModel;

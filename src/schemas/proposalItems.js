@@ -9,7 +9,7 @@ const proposalItemsModel=sequelize.define("proposal_items",{
     id:{
         type:DataTypes.UUID,
         allowNull:false,
-        primarykey:true,
+        primaryKey:true,
         defaultValue:uuidv4
 
     },
@@ -20,14 +20,9 @@ const proposalItemsModel=sequelize.define("proposal_items",{
     price:{
         type:DataTypes.DECIMAL(14,2),
         allowNull:false,
-
-    },
-    discount:{
-
-
     },
     product_id:{
-        type:DataTypes.UUID,
+        type:DataTypes.STRING,
         references:{
             model:product,
             key:'idproduct'

@@ -1,4 +1,4 @@
-const {DataTypes}= require("seqielize");
+const {DataTypes}= require("sequelize");
 const sequelize=require('../config/db');
 const {v4:uuidv4}= require("uuid")
 const transaction = require("./transaction");
@@ -9,7 +9,7 @@ const purchaseModel=sequelize.define("purchase",{
     id:{
         type:DataTypes.UUID,
         allowNull:false,
-        primarykey:true,
+        primaryKey:true,
 
     },
     quantity:{
@@ -36,7 +36,7 @@ const purchaseModel=sequelize.define("purchase",{
         }
     },
     product_id:{
-        type:DataTypes.UUID,
+        type:DataTypes.STRING,
         references:{
             model:product,
             key:'idproduct'

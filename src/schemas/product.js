@@ -8,7 +8,7 @@ const productsModel= sequelize.define("products",
         idproduct:{
             type:DataTypes.STRING,
             allowNull:false,
-            primarykey:true
+            primaryKey:true
         },
         description:{
             type:DataTypes.STRING,

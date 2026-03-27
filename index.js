@@ -1,7 +1,7 @@
 const express = require('express');
 const sequelize=require('./src/config/db');
 require('./src/schemas/Associations');
-const routes = require('./src/config/configRoutes');
+const routes = require('./src/config/routes-config');
 const app = express();
 
 routes(app);
@@ -10,7 +10,7 @@ const initDb = async()=>{
     try {
         await sequelize.authenticate();
         console.log('Conexión a la base de datos establecida correctamente.');
-        await sequelize.sync({force:false});
+        await sequelize.sync({forced:true});
         console.log('Modelos sincronizados con la base de datos.');
     } catch (error) {
         console.error('Error al conectar a la base de datos:', error);

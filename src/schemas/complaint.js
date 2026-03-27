@@ -10,10 +10,12 @@ const complaintModel=sequelize.define("complaint",{
     id:{
                 type:DataTypes.UUID,
                 allowNull:false,
-                primarykey:true,
+                primaryKey:true,
                 defaultValue:uuidv4
     },
     status:{
+        type:DataTypes.BOOLEAN,
+        defaultValue:true
 
     },
     text:{
@@ -27,7 +29,7 @@ const complaintModel=sequelize.define("complaint",{
         defaultValue:DataTypes.NOW
     },
     customer_id:{
-        type:DataTypes.UUID,
+        type:DataTypes.STRING,
         references:{
                         model:customer,
                         key:'code'

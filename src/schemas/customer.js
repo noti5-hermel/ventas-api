@@ -3,11 +3,29 @@ const sequelize=require('../config/db');
 const rute = require("./rute");
 const { validate } = require("uuid");
 
+
+const payTerms={
+    CONTADO:1,
+    QUINCE_DIAS:2,
+    TREINTA_DIAS:3,
+    SESENTA_DIAS:4,
+    CUARENTACINCO_DIAS:5,
+    SEIS_DIAS:6,
+}
+
+//tax code
+const taxcode={
+ CONSUMIDOR_F:0,
+    CREDITO_F:1,
+    EXPORTACION:3
+}
+
 const customerModel=sequelize.define("customers",{
     code:{
         type:DataTypes.STRING,
         allowNull:false,
-        primarykey:true
+        primaryKey:true,
+        unique:true,
     },
     name:{
             type:DataTypes.STRING,
@@ -33,14 +51,14 @@ const customerModel=sequelize.define("customers",{
          type:DataTypes.INTEGER,
         allowNull:true,
         validate:{
-            isIn:[Object.values(payTerms)]
+            isIn:Object.values(payTerms)
         }
     },
     tax_code:{
         type:DataTypes.INTEGER,
         allowNull:true,
         validate:{
-            isIn:[Object.values(taxcode)]
+            isIn:Object.values(taxcode)
         }
     },
     status:{
@@ -49,7 +67,7 @@ const customerModel=sequelize.define("customers",{
          allowNull:false
     },
     rute_id:{
-         type:Datatypes.UUID,
+         type:DataTypes.UUID,
         references:{
             model:rute,
             key:'idRute',
@@ -60,20 +78,6 @@ const customerModel=sequelize.define("customers",{
 })
 
 //Condition pay
-const payTerms={
-    CONTADO:1,
-    QUINCE_DIAS:2,
-    TREINTA_DIAS:3,
-    SESENTA_DIAS:4,
-    CUARENTACINCO_DIAS:5,
-    SEIS_DIAS:6,
-}
 
-//tax code
-const taxcode={
- CONSUMIDOR_F:0,
-    CREDITO_F:1,
-    EXPORTACION:3
-}
 
 module.exports=customerModel;

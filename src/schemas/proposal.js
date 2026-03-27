@@ -1,13 +1,15 @@
 const {DataTypes} = require("sequelize");
 const sequelize=require('../config/db');
 const customer = require("./customer");
+const user = require("./users");
 const {v4:uuidv4}=require("uuid");
 
 const proposalModel=sequelize.define("proposal",{
     id:{
         type:DataTypes.UUID,
         allowNull:false,
-        primarykey:true
+        primaryKey:true,
+        defaultValue:uuidv4,
     },
     status:{
         type:DataTypes.ENUM('active','inactive','defeated'),
@@ -30,10 +32,17 @@ const proposalModel=sequelize.define("proposal",{
         allowNull:false,
     },
     customer_id:{
-        type:DataTypes.UUID,
+        type:DataTypes.STRING,
         references:{
             model:customer,
             key:'code'
+        }
+    },
+    user_id:{
+        type:DataTypes.UUID,
+        references:{
+            model:user,
+            key:'id'
         }
     }
     

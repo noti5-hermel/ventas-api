@@ -43,6 +43,7 @@ exports.getOne=async(req,res)=>{
 }
 
 
+
 exports.updateProduct=async(req,res)=>{
     try {
         const updateProduct=await service.updateProduct(req.params.id,req.body);

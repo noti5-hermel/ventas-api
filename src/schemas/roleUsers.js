@@ -8,7 +8,7 @@ const roleUserModel= sequelize.define("roleUsers",
             type:DataTypes.UUID,
             allowNull:false,
             defaultValue:uuidv4,
-            primarykey:true
+            primaryKey:true
         },
         role_name:{
             type:DataTypes.STRING,

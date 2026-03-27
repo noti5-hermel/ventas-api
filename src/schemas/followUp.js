@@ -8,7 +8,7 @@ const followUpModel=sequelize.define("followUp",{
      id:{
                 type:DataTypes.UUID,
                 allowNull:false,
-                primarykey:true,
+                primaryKey:true,
                 defaultValue:uuidv4
     },
     text:{

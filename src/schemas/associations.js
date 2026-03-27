@@ -1,11 +1,11 @@
-const roleUser=require("../schemas/roleUsers");
-const users=require("../schemas/users");
+const roleUser=require("./roleUsers");
+const rute = require("./rute"); 
+const users=require("./users");
+const customer = require("./customer");
 const segmento=require("./segmento");
 const products = require("../schemas/product");
-const rute = require("./rute"); 
 const categoryComplaint= require("./categoryComplaint");
 const proposal = require("./proposal");
-const customer = require("./customer");
 const transaction = require("./transaction");
 const purchase = require("./purchase");
 const proposalItems = require("./proposalItems");
@@ -13,69 +13,69 @@ const complaint = require("./complaint")
 const followUp = require("./followUp")
 
 
+
 //roleuser&user
-roleUser.hasMany(users,{foreignKey:""});
-users.belongsTo(roleUser,{foreignKey:""});
+roleUser.hasMany(users,{foreignKey:"role_id"});
+users.belongsTo(roleUser,{foreignKey:"role_id"});
 
 //ruta&user | ruta&customer
-rute.hasMany(users,{foreignKey:""});
-users.belongsTo(rute,{foreignKey:""});
+rute.hasMany(users,{foreignKey:"rute_id"});
+users.belongsTo(rute,{foreignKey:"rute_id"});
 
-rute.hasMany(customer,{foreignKey:""});
-customer.belongsTo(rute,{foreignKey:""});
+rute.hasMany(customer,{foreignKey:"rute_id"});
+customer.belongsTo(rute,{foreignKey:"rute_id"});
 
 //categoryComplaint&complaint
-categoryComplaint.hasMany(complaint,{foreignKey:""});
-complaint.belongsTo(categoryComplaint,{foreignKey:""});
+categoryComplaint.hasMany(complaint,{foreignKey:"category_id"});
+complaint.belongsTo(categoryComplaint,{foreignKey:"category_id"});
 
 //complaint&followup | complaint&customer | complaint&fusers
-complaint.hasMany(followUp);
-followUp.belongsTo(complaint);
+complaint.hasMany(followUp,{foreignKey:"complaint_id"});
+followUp.belongsTo(complaint,{foreignKey:"complaint_id"});
 
-complaint.belongsTo(users);
-users.hasMany(complaint);
+complaint.belongsTo(users,{foreignKey:"user_id"});
+users.hasMany(complaint,{foreignKey:"user_id"});
 
-complaint.belongsTo(customer);
-customer.hasMany(complaint);
+complaint.belongsTo(customer,{foreignKey:"customer_id"});
+customer.hasMany(complaint,{foreignKey:"customer_id"});
 
 //followup&user
-followUp.belongsTo(users);
-users.hasMany(followUp),
+followUp.belongsTo(users,{foreignKey:"user_id"});
+users.hasMany(followUp,{foreignKey:"user_id"}),
 
 //user&transaction | customer&transaction | proposal&transaction
-users.hasMany(transaction);
-transaction.belongsTo(users);
+users.hasMany(transaction,{foreignKey:"user_id"});
+transaction.belongsTo(users,{foreignKey:"user_id"});
 
-customer.hasMany(transaction);
-transaction.belongsTo(customer);
+customer.hasMany(transaction,{foreignKey:"customer_id"});
+transaction.belongsTo(customer,{foreignKey:"customer_id"});
 
-proposal.hasOne(transaction);
-transaction.hasOne(proposal);
+proposal.hasOne(transaction,{foreignKey:"proposal_id"});
+transaction.hasOne(proposal,{foreignKey:"proposal_id"});
 
 //product&segmento
-segmento.hasMany(products);
-products.belongsTo(segmento);
+segmento.hasMany(products,{foreignKey:"segmento_id"});
+products.belongsTo(segmento,{foreignKey:"segmento_id "});
 
 // transaction&purchase | purchase&product | proposalItems&product
-transaction.hasMany(purchase);
-purchase.belongsTo(transaction);
+transaction.hasMany(purchase,{foreignKey:"transaction_id"});
+purchase.belongsTo(transaction,{foreignKey:"transaction_id"});
 
-products.hasMany(purchase);
-purchase.belongsTo(products);
+products.hasMany(purchase,{foreignKey:"product_id"});
+purchase.belongsTo(products,{foreignKey:"product_id"});
 
-proposalItems.belongsTo(products);
-products.hasMany(proposalItems);
+proposalItems.belongsTo(products,{foreignKey:"product_id"});
+products.hasMany(proposalItems,{foreignKey:"product_id"});
 
 //proposal&user | proposal&customer | proposal&proposalItem
-proposal.belongsTo(users);
-users.hasMany(proposal);
+proposal.belongsTo(users,{foreignKey:"user_id"});
+users.hasMany(proposal,{foreignKey:"user_id"});
 
-proposal.belongsTo(customer);
-customer.hasMany(proposal);
+proposal.belongsTo(customer,{foreignKey:"customer_id"});
+customer.hasMany(proposal,{foreignKey:"customer_id"});
 
-proposal.hasMany(proposalItems);
-proposalItems.belongsTo(proposal);
-
+proposal.hasMany(proposalItems,{foreignKey:"proposal_id"});
+proposalItems.belongsTo(proposal,{foreignKey:"proposal_id"});
 
 
 
@@ -92,7 +92,7 @@ module.exports={
     transaction,
     purchase,
     proposalItems,
-    complaintModel,
+    complaint,
     followUp,
     segmento
 };
