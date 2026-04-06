@@ -11,9 +11,10 @@ const transaction = require("../rotes/transaction");
 const purchase = require("../rotes/purchase");
 const proposal = require("../rotes/proposal");
 const proposalItems = require("../rotes/proposalItems");
+const complaint=require("../rotes/complaint");
+const followUps=require("../rotes/follow-ups");
 
 //pendente
-//complaint
 // follow ups
 
 
@@ -32,7 +33,8 @@ const configRoutes=(app)=>{
     app.use("/purchase",purchase);
     app.use("/proposal",proposal);
     app.use("/proposalItems",proposalItems);
-
+    app.use("/complaint",complaint);
+    app.use("/follow-ups",)
 
 }
 
