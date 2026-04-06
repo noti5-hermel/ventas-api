@@ -9,6 +9,13 @@ const segmento = require("../rotes/segmento");
 const users = require("../rotes/users");
 const transaction = require("../rotes/transaction");
 const purchase = require("../rotes/purchase");
+const proposal = require("../rotes/proposal");
+const proposalItems = require("../rotes/proposalItems");
+
+//pendente
+//complaint
+// follow ups
+
 
 
 const configRoutes=(app)=>{
@@ -23,6 +30,8 @@ const configRoutes=(app)=>{
     app.use("/users",users);
     app.use("/transaction",transaction);
     app.use("/purchase",purchase);
+    app.use("/proposal",proposal);
+    app.use("/proposalItems",proposalItems);
 
 
 }
