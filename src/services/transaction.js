@@ -2,12 +2,12 @@ const model = require("../schemas/transaction");
 
 const transactionService={};
 
-transactionService.create=async(data)=>{
+transactionService.createT=async(data)=>{
     try {
         const newTreansaction = await model.create(data);
         return newTreansaction;
     } catch (error) {
-         console.error("Eror al crear transaction",e);
+         console.error("Eror al crear transaction",error);
         throw new Error("Error al crear transaction");
     }
 
@@ -24,13 +24,13 @@ transactionService.All=async(data)=>{
     }
 }
 
-transactionService.byId=async(data)=>{
+transactionService.byId=async(id)=>{
     try {
-        const data= await model.findByPk(data);
+        const data= await model.findByPk(id);
         if(!data)throw new Error("transaction inexistente");
         return data;
     } catch (error) {
-        console.error("Eror al obtener transaction",e);
+        console.error("Eror al obtener transaction",error);
             throw new Error("Error al obtener transaction");
     }
 }
@@ -42,12 +42,12 @@ transactionService.update=async(id,data)=>{
         await transaction.update(data);
         return transaction;
     } catch (error) {
-        console.error("Eror al actualizar transaction",e);
+        console.error("Eror al actualizar transaction",error);
             throw new Error("Error al actualizar transaction");
     }
 }
 
-transactionService.delete=async(data)=>{
+transactionService.delete=async(id)=>{
         try {
             const exist = await model.findByPk(id);
             if(!exist)throw new Error("segmento no existe");
@@ -57,8 +57,10 @@ transactionService.delete=async(data)=>{
             return deleteTrans;
             
         } catch (error) {
-            console.error("Error al eliminar transaction",e);
+            console.error("Error al eliminar transaction",error);
                 throw new Error("Error al eliminar transaction");
         }
 }
 
+
+module.exports=transactionService;

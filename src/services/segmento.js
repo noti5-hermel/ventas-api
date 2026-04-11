@@ -5,7 +5,7 @@ const segmentoService={};
 
 segmentoService.createSeg=async(data)=>{
     try{
-        const newSeg= await schema.create({data});
+        const newSeg= await schema.create(data);
         return newSeg;
     }catch(e){
         console.error("Eror al crear segmento",e);

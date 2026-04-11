@@ -6,7 +6,7 @@ const roleUser={};
 
 roleUser.createRol=async(data)=>{
     try{
-        const newRol= await model.create({data});
+        const newRol= await model.create(data);
         return newRol;
     }catch(e){
         console.error("Eror al crear rol",e);
@@ -22,8 +22,8 @@ roleUser.updateRol=async(id,data)=>{
         await exist.update(data);
         return exist;
         
-    } catch (e) {
-         console.error("Eror al actualizar",e);
+    } catch(error) {
+         console.error("Eror al actualizar",error);
         throw new Error("Error al actualizar rol");
     }
 }
@@ -33,7 +33,7 @@ roleUser.getAll=async()=>{
         const data = await model.findAll();
         return data;
     } catch (error) {
-         console.error("Eror al obtener roles",e);
+         console.error("Eror al obtener roles",error);
         throw new Error("Error al obtener roles");
     }
 }
@@ -44,7 +44,7 @@ roleUser.getById=async(id)=>{
         return {message:"Rol encontrado",rol};
         
     } catch (error) {
-         console.error("Eror al obtener rol",e);
+         console.error("Eror al obtener rol",error);
         throw new Error("Error al obtener rol");
     }
 }
@@ -56,10 +56,10 @@ roleUser.deleteRol=async(id)=>{
 
         const deleteUser=exist.get({plain:true});
         await exist.destroy();
-        res.json({"User eliminado":deleteUser});
+        return {message:'Rol eliminado correctamente'};
         
     } catch (error) {
-         console.error("Eror al eliminar ",e);
+         console.error("Eror al eliminar ",error);
         throw new Error("Error al eliminar rol");
     }
 }

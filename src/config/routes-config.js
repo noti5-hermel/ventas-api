@@ -1,6 +1,6 @@
 const express = require("express");
 
-const roleUser = require("../rotes/roleUser");
+const roleUser = require("../rotes/roleUser");//Prub succes crud 
 const categoryComplaint = require("../rotes/categoryComplaint");
 const customer = require("../rotes/customer");
 const product = require("../rotes/product");
@@ -13,10 +13,6 @@ const proposal = require("../rotes/proposal");
 const proposalItems = require("../rotes/proposalItems");
 const complaint=require("../rotes/complaint");
 const followUps=require("../rotes/followUp");
-
-//pendente
-// follow ups
-
 
 
 const configRoutes=(app)=>{

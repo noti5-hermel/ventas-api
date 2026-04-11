@@ -34,7 +34,7 @@ exports.updatePurchase=async(req,res)=>{
 
 exports.findPurchase=async(req,res)=>{
     try {
-        const finded = await servicePurchase(req.params.id);
+        const finded = await servicePurchase.ByID(req.params.id);
         res.status(200).json(finded);
     } catch (error) {
         res.status(500).json({error:error.message});
@@ -43,7 +43,7 @@ exports.findPurchase=async(req,res)=>{
 
 exports.deletePurchase=async(req,res)=>{
     try {
-        const element=await servicePurchase.deleteUsers(req.params.id);
+        const element=await servicePurchase.delete(req.params.id);
                 if(!element) return res.status(404).json({error:"compra not found"});
                 res.status(204).json({"compra eliminado:":element});
         

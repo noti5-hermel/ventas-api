@@ -3,13 +3,13 @@ const schema = require("../schemas/proposal");
 const proposalService={};
 
 
-proposalService.create = async()=>{
+proposalService.create = async(body)=>{
     try {
         const newpRroposal = await schema.create(body);
         return newpRroposal
         
     } catch (error) {
-         console.error("Error al eliminar ",error);
+         console.error("Error al crear  ",error);
         throw new Error("Error al generar proposal");
     }
 

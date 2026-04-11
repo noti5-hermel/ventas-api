@@ -10,6 +10,7 @@ const purchaseModel=sequelize.define("purchase",{
         type:DataTypes.UUID,
         allowNull:false,
         primaryKey:true,
+        defaultValue:uuidv4
 
     },
     quantity:{

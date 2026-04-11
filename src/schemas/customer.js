@@ -51,14 +51,14 @@ const customerModel=sequelize.define("customers",{
          type:DataTypes.INTEGER,
         allowNull:true,
         validate:{
-            isIn:Object.values(payTerms)
+            isIn:[Object.values(payTerms)]
         }
     },
     tax_code:{
         type:DataTypes.INTEGER,
         allowNull:true,
         validate:{
-            isIn:Object.values(taxcode)
+            isIn:[Object.values(taxcode)]
         }
     },
     status:{

@@ -27,7 +27,7 @@ purchaseService.listAll=async()=>{
 purchaseService.update=async(id,data)=>{
     try {
         const register = await schema.findByPk(id);
-        if(!exist)throw new Error("Elemento no encontrado");
+        if(!register)throw new Error("Elemento no encontrado");
 
         await register.update(data);
         return register;
